@@ -213,13 +213,13 @@ It contains the html tag and style, with erb style variable parameter <%= var %>
 </html>
 ```
 
-Now let's use it on one of our routes.
+Now let's use it on one of our routes. You can remove the HTML bit `"<h1 style=\"background-color:#{color};\">Hello #{name}!</h1>"` and replace it with some lines to use the ERB template.
+
 ```ruby
 # ... (only showing relevant part of code)
 get '/messages/:name' do
   name = params['name']
   color = params['color'] ? params['color'] : 'DodgerBlue'
-    "<h1 style=\"background-color:#{color};\">Hello #{name}!</h1>"
   erb :message, locals: {
     name: name,
     color: color
